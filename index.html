@@ -17,14 +17,14 @@
             ** Nous afficherons ici le score **
             <hr>
             <div>
-                <span :class="{bleu: hautGauche}" class="carre"></span>
-                <span :class="{rouge: hautDroite}" class="carre"></span>
+                <span @click='selectSquare("hautGauche")' :class="{bleu: hautGauche}" class="carre"></span>
+                <span @click='selectSquare("hautDroite")' :class="{rouge: hautDroite}" class="carre"></span>
             </div>
             <div>
-                <span :class="{vert: basGauche}" class="carre"></span>
-                <span :class="{jaune: basDroite}" class="carre"></span>
+                <span @click='selectSquare("basGauche")' :class="{vert: basGauche}" class="carre"></span>
+                <span @click='selectSquare("basDroite")' :class="{jaune: basDroite}" class="carre"></span>
             </div>
-            <hr>git status
+            <hr>
             <span>sequence : </span>
             <pre>{{ sequence }}</pre>
         </div>
