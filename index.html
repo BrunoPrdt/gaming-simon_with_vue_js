@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Jeu du Simon</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" type="text/CSS" media="screen" href="./style.css">
         <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
     </head>
     <body>
         <div id="app">
-            <button>
+            <button @click="newGame()">
                 NOUVELLE PARTIE
             </button>
             <hr>
             ** Nous afficherons ici le score **
             <hr>
             <div>
-                <span class="carre"></span>
-                <span class="carre"></span>
+                <span :class="{bleu: hautGauche}" class="carre"></span>
+                <span :class="{rouge: hautDroite}" class="carre"></span>
             </div>
             <div>
-                <span class="carre"></span>
-                <span class="carre"></span>
+                <span :class="{vert: basGauche}" class="carre"></span>
+                <span :class="{jaune: basDroite}" class="carre"></span>
             </div>
+            <hr>git status
+            <span>sequence : </span>
+            <pre>{{ sequence }}</pre>
         </div>
         <script type="text/javascript" src="./index.js" ></script>
     </body>
