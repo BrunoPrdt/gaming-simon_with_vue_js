@@ -7,7 +7,8 @@ let vm = new Vue({
         hautDroite: false,
         basGauche: false,
         basDroite: false,
-        squareMapping: ["hautGauche", "hautDroite", "basGauche", "basDroite"]
+        squareMapping: ["hautGauche", "hautDroite", "basGauche", "basDroite"],
+        score: undefined,
     },
     methods: {
         allGray() {
@@ -37,22 +38,31 @@ let vm = new Vue({
         newGame() {
             this.sequence = [];
             this.nextTurn();
+            this.score = 0;
         },
         selectSquare(carre) {
-            if (carre === this.tmp[0]) {
-                vm[carre] = true;
-                setTimeout(function() {
-                    vm.allGray();
-                    vm.tmp.shift();
-                    if (!vm.tmp[0]) {
-                        vm.nextTurn();
-                    }
-                }, 400)
+            if (this.score === undefined ) {
+                alert('Vous devez démarrer une nouvelle partie avant de sélectionner un carré');
             } else {
-                alert('Perdu!');
+                if (carre === this.tmp[0]) {
+                    vm[carre] = true;
+                    setTimeout(function() {
+                        vm.allGray();
+                        vm.tmp.shift();
+                        if (!vm.tmp[0]) {
+                            vm.nextTurn();
+                        }
+                    }, 400)
+                }
+                else {
+                    alert('Perdu!');
+                    vm.sequence = [];
+                    vm.tmp = [];
+                }
             }
         },
         nextTurn() {
+            vm.score ++;
             this.addNewElemToSequence();
             this.allGray();
             this.playSequence(vm.tmp[0]);

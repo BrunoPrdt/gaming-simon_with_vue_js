@@ -10,11 +10,12 @@
     </head>
     <body>
         <div id="app">
+            <h1>Jeu du simon</h1>
             <button @click="newGame()">
                 NOUVELLE PARTIE
             </button>
             <hr>
-            ** Nous afficherons ici le score **
+            Score : {{ score }}
             <hr>
             <div>
                 <span @click='selectSquare("hautGauche")' :class="{bleu: hautGauche}" class="carre"></span>
