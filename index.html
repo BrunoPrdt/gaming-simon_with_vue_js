@@ -16,7 +16,7 @@
             </button>
             <hr>
             Score : {{ score }}
-            <hr>
+            <hr style="margin-bottom: 2vh">
             <div>
                 <span @click='selectSquare("hautGauche")' :class="{bleu: hautGauche}" class="carre"></span>
                 <span @click='selectSquare("hautDroite")' :class="{rouge: hautDroite}" class="carre"></span>
@@ -25,7 +25,7 @@
                 <span @click='selectSquare("basGauche")' :class="{vert: basGauche}" class="carre"></span>
                 <span @click='selectSquare("basDroite")' :class="{jaune: basDroite}" class="carre"></span>
             </div>
-            <hr>
+            <hr style="margin: 2vh 0">
             <span>sequence : </span>
             <pre>{{ sequence }}</pre>
         </div>
